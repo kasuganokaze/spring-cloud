@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>System index</title>
+    <link rel="stylesheet" type="text/css" href="../css/index/normalize.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/index/index.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/index/component.css"/>
+    <script type="text/javascript" src="../js/jquery/jquery-1.8.3.min.js"></script>
+    <script src="../js/index/html5.js"></script>
+</head>
+<body>
+<div class="container demo-1">
+    <div class="content">
+        <div id="large-header" class="large-header">
+            <canvas id="demo-canvas"></canvas>
+            <div class="logo_box">
+                <h3>Welcome to login!</h3>
+                <div class="input_outer">
+                    <span class="u_user"></span>
+                    <input id="username" name="username" class="text" type="text" placeholder="请输入账户"
+                           style="color: #FFFFFF">
+                </div>
+                <div class="input_outer">
+                    <span class="us_uer"></span>
+                    <input id="password" name="password" class="text" type="password" placeholder="请输入密码"
+                           style="color: #FFFFFF; position:absolute; z-index:100;">
+                </div>
+                <div class="mb2">
+                    <a class="act-but submit" href="javascript:void(0);" style="color: #FFFFFF">登录</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../js/index/TweenLite.min.js"></script>
+<script src="../js/index/EasePack.min.js"></script>
+<script src="../js/index/rAF.js"></script>
+<script src="../js/index/login.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".submit").click(function () {
+            var username = $("#username").val();
+            var password = $("#password").val();
+            $.ajax({
+                type: "post",
+                timeout: 1000,
+                url: "/api/login",
+                data: {
+                    "username": username,
+                    "password": password
+                },
+                dataType: "json",
+                success: function (data) {
+                    if (data.status === 200) {
+                        window.location.href = "/home.html";
+                    } else {
+                        alert(data.msg);
+                    }
+                },
+                error: function (xhr) {
+                    if (xhr.status === 401) {
+                        alert("未经授权");
+                    } else {
+                        alert("出现其它错误");
+                    }
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>

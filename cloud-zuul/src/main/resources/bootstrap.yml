@@ -1,0 +1,11 @@
+server:
+  port: 8040
+spring:
+  application:
+    name: cloud-zuul
+  cloud:
+    config:
+      profile: default
+      label: master
+      discovery:
+        service-id: cloud-config

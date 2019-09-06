@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/config-properties.iml" filepath="$PROJECT_DIR$/.idea/modules/config-properties.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/config-properties_main.iml" filepath="$PROJECT_DIR$/.idea/modules/config-properties_main.iml" group="config-properties" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/config-properties_test.iml" filepath="$PROJECT_DIR$/.idea/modules/config-properties_test.iml" group="config-properties" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,18 @@
+eureka:
+  instance:
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+    status-page-url-path: /
+spring:
+  boot:
+    admin:
+      turbine:
+        location: ${spring.application.name}
+      routes:
+        endpoints: env,metrics,trace,dump,jolokia,info,configprops,trace,logfile,refresh,flyway,liquibase,heapdump,loggers,auditevents,hystrix.stream,turbine.stream
+turbine:
+  app-config: cloud-api
+  cluster-name-expression: "'default'"
+  combine-host-port: true
+security:
+  basic:
+    enabled: false

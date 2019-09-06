@@ -1,0 +1,14 @@
+eureka:
+  instance:
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+    status-page-url-path: /swagger-ui.html
+spring:
+  rabbitmq:
+    addresses: 127.0.0.1:5672
+    username: kaze
+    password: 123456
+    publisher-confirms: true
+    virtual-host: /
+  data:
+    mongodb:
+      uri: mongodb://kaze:123456@127.0.0.1:27017/kaze

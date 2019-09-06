@@ -1,0 +1,21 @@
+eureka:
+  instance:
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+ribbon:
+  eureka:
+    enabled: false
+zuul:
+  #ignored-services: *
+  routes:
+    api:
+      path: /api/**
+      service-id: cloud-api
+cloud-api:
+  ribbon:
+    listOfServers: 127.0.0.1:8080
+cloud-api-amqp:
+  ribbon:
+    listOfServers: 127.0.0.1:8180
+logging:
+  level:
+    com.netflix: DEBUG

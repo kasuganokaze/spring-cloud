@@ -1,0 +1,21 @@
+server:
+  port: 8761
+spring:
+  application:
+    name: cloud-eureka
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka:123456@127.0.0.1:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+security:
+  basic:
+    enabled: true
+  user:
+    name: eureka
+    password: 123456
+management:
+  security:
+    enabled: false
